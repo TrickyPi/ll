@@ -3,16 +3,18 @@
 a simple webpack builder for react
 
 ## feat
+
 1. support mock
 2. support customize webpack config
 
-## install 
+## install
 
 ```zsh
 yarn add ll-script -D
 ```
 
 ## use
+
 Update the scripts section of your package.json file to use the ll-script CLI
 
 ```js
@@ -25,24 +27,27 @@ Update the scripts section of your package.json file to use the ll-script CLI
 ```
 
 ### customize webpack config
+
 add ll.config.js in your project root.
 
 ```js
 module.exports = {
   webpackConfig: (prevConfig, { isDev, isBuild }) => {
     //the best way is use webpack-merge to merge webpack config
-    return prevConfig
+    return prevConfig;
   }
-}
+};
 ```
 
 ### mock
+
 now, mock data api is a simple feature. add `mock/index.json` file in your project root,
 the structure of it like following.
+
 ```json
 {
-  "mock": true,//mock open or close
-  "api":[
+  "mock": true,
+  "api": [
     {
       "path": "/api/get-info",
       "method": "GET",
@@ -50,7 +55,7 @@ the structure of it like following.
         "data": {},
         "success": true
       },
-      "mock": false,//control this api 
+      "mock": false
     },
     {
       "path": "/api/get-info/${infoId}",
@@ -59,7 +64,7 @@ the structure of it like following.
         "data": {},
         "success": true
       },
-      "mock": true,//control this api 
+      "mock": true
     }
   ]
 }

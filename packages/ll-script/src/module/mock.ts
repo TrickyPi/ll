@@ -19,13 +19,13 @@ interface MockItem {
 
 export default function useMocks(app) {
   if (!fse.pathExistsSync(paths.mockFile)) {
-    return
+    return;
   }
   app.use("/*", function (req, res, next) {
     const { originalUrl: url, method: reqMethod } = req;
     const {
       mock,
-      api: data,
+      api: data
     }: {
       mock: boolean;
       api: MockItem[];

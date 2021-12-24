@@ -13,10 +13,12 @@ importers:
       '@babel/preset-typescript': ^7.15.0
       '@pmmmwh/react-refresh-webpack-plugin': ^0.5.1
       babel-loader: ^8.2.2
+      chalk: 4.1.2
       copy-webpack-plugin: ^9.0.1
       css-loader: ^6.4.0
       css-minimizer-webpack-plugin: ^3.2.0
       fork-ts-checker-webpack-plugin: ^6.4.0
+      fs-extra: ^10.0.0
       html-webpack-plugin: ^5.3.2
       less: ^4.1.2
       less-loader: ^10.1.0
@@ -44,10 +46,12 @@ importers:
       '@babel/preset-typescript': 7.16.5_@babel+core@7.16.5
       '@pmmmwh/react-refresh-webpack-plugin': 0.5.4_738bd460c0697df2d3e1ddf3c0b5e5d3
       babel-loader: 8.2.3_26251eab09162b25a254715ee98d7c5c
+      chalk: 4.1.2
       copy-webpack-plugin: 9.1.0_webpack@5.65.0
       css-loader: 6.5.1_webpack@5.65.0
       css-minimizer-webpack-plugin: 3.3.1_webpack@5.65.0
       fork-ts-checker-webpack-plugin: 6.5.0_typescript@4.5.4+webpack@5.65.0
+      fs-extra: 10.0.0
       html-webpack-plugin: 5.5.0_webpack@5.65.0
       less: 4.1.2
       less-loader: 10.2.0_less@4.1.2+webpack@5.65.0
@@ -2855,6 +2859,15 @@ packages:
   /fresh/0.5.2:
     resolution: {integrity: sha1-PYyt2Q2XZWn6g1qx+OSyOhBWBac=}
     engines: {node: '>= 0.6'}
+    dev: false
+
+  /fs-extra/10.0.0:
+    resolution: {integrity: sha512-C5owb14u9eJwizKGdchcDUQeFtlSHHthBk8pbX9Vc1PFZrLombudjDnNns88aYslCyF6IY5SUw3Roz6xShcEIQ==}
+    engines: {node: '>=12'}
+    dependencies:
+      graceful-fs: 4.2.8
+      jsonfile: 6.1.0
+      universalify: 2.0.0
     dev: false
 
   /fs-extra/9.1.0:

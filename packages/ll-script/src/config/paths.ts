@@ -2,8 +2,8 @@ import path from "path";
 const cwd = process.cwd();
 
 export default {
-  llConfig: path.resolve(cwd, 'll.config.js'),
-  tsconfigFile: path.resolve(cwd, 'tsconfig.json'),
+  llConfig: path.resolve(cwd, "ll.config.js"),
+  tsconfigFile: path.resolve(cwd, "tsconfig.json"),
   dist: path.resolve(cwd, "dist/"),
   appPkg: path.resolve(cwd, "package.json"),
   appSrc: path.resolve(cwd, "src/"),
@@ -11,5 +11,5 @@ export default {
   publicDir: path.resolve(cwd, "public/"),
   spaHtml: path.resolve(cwd, "public/index.html"),
   ReactTsEntryFile: path.resolve(cwd, "src/index.tsx"),
-  ReactJsEntryFile: path.resolve(cwd, "src/index.jsx"),
+  ReactJsEntryFile: path.resolve(cwd, "src/index.jsx")
 };

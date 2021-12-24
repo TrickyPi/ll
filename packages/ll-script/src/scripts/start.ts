@@ -12,9 +12,9 @@ const config: Configuration = {
   ...getConfig(),
   //下面所有配置都是为了精简terminal输出
   infrastructureLogging: {
-    level: "warn",
+    level: "warn"
   },
-  stats: "errors-warnings",
+  stats: "errors-warnings"
 };
 
 const compiler = webpack(config);
@@ -25,7 +25,7 @@ const compiler = webpack(config);
   //检测端口占用情况
   const port = await portfinder.getPortPromise({
     port: defaultPort,
-    stopPort: defaultPort + 100,
+    stopPort: defaultPort + 100
   });
 
   const spinner = ora(`starting dev server in ${port} port`).start();
@@ -39,11 +39,11 @@ const compiler = webpack(config);
       port,
       headers: {
         "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Headers": "*",
+        "Access-Control-Allow-Headers": "*"
       },
       onBeforeSetupMiddleware({ app }) {
         useMocks(app);
-      },
+      }
     },
     compiler
   );

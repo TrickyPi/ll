@@ -11,7 +11,7 @@ import paths from "./paths";
 export default function getCommonConfig({
   isDev,
   isBuild,
-  isTs,
+  isTs
 }: {
   isDev: boolean;
   isBuild: boolean;
@@ -34,10 +34,10 @@ export default function getCommonConfig({
         options: {
           modules: {
             auto: true,
-            localIdentName: isDev ? "[path][name]__[local]" : "[hash:base64]",
+            localIdentName: isDev ? "[path][name]__[local]" : "[hash:base64]"
           },
-          ...cssOptions,
-        },
+          ...cssOptions
+        }
       },
       /**
        * 优化运行时速度
@@ -48,11 +48,11 @@ export default function getCommonConfig({
         loader: "postcss-loader",
         options: {
           postcssOptions: {
-            plugins: ["postcss-preset-env"],
-          },
-        },
+            plugins: ["postcss-preset-env"]
+          }
+        }
       },
-      extraLoader,
+      extraLoader
     ].filter(Boolean);
     return loaders;
   };
@@ -62,7 +62,7 @@ export default function getCommonConfig({
     entry: "./src/index",
     resolve: {
       extensions: [".tsx", ".ts", "jsx", ".js"],
-      plugins: [isTs && new TsconfigPathsPlugin()].filter(Boolean),
+      plugins: [isTs && new TsconfigPathsPlugin()].filter(Boolean)
     },
     output: {
       filename: isBuild
@@ -75,34 +75,34 @@ export default function getCommonConfig({
       clean: true,
       library: {
         name: packageName,
-        type: "umd",
-      },
+        type: "umd"
+      }
     },
     module: {
       rules: [
         {
           test: /\.css$/,
           use: getStyleLoaders({
-            importLoaders: 0,
-          }),
+            importLoaders: 0
+          })
         },
         {
           test: /\.less$/,
           use: getStyleLoaders(
             {
-              importLoaders: 1,
+              importLoaders: 1
             },
             "less-loader"
-          ),
+          )
         },
         {
           test: /\.(scss|sass)$/,
           use: getStyleLoaders(
             {
-              importLoaders: 1,
+              importLoaders: 1
             },
             "sass-loader"
-          ),
+          )
         },
         {
           test: /\.(js|mjs|jsx|ts|tsx)$/,
@@ -116,35 +116,35 @@ export default function getCommonConfig({
                     "@babel/preset-env",
                     {
                       useBuiltIns: "entry",
-                      corejs: 3,
-                    },
+                      corejs: 3
+                    }
                   ],
                   [
                     "@babel/preset-react",
                     {
-                      runtime: "automatic",
-                    },
+                      runtime: "automatic"
+                    }
                   ],
-                  isTs && "@babel/preset-typescript",
+                  isTs && "@babel/preset-typescript"
                 ].filter(Boolean),
-                plugins: [isDev && "react-refresh/babel"].filter(Boolean),
-              },
-            },
-          ],
+                plugins: [isDev && "react-refresh/babel"].filter(Boolean)
+              }
+            }
+          ]
         },
         {
           test: /\.(bmp|png|svg|jpg|jpeg|gif)$/i,
           type: "asset",
           parser: {
             dataUrlCondition: {
-              maxSize: 10 * 1024,
-            },
+              maxSize: 10 * 1024
+            }
           },
           generator: {
-            filename: "static/img/[hash][ext][query]",
-          },
-        },
-      ].filter(Boolean),
+            filename: "static/img/[hash][ext][query]"
+          }
+        }
+      ].filter(Boolean)
     },
     optimization: {
       runtimeChunk: "single",
@@ -154,36 +154,36 @@ export default function getCommonConfig({
             test: /[\\/]node_modules[\\/]/,
             name: "vendors-others",
             chunks: "all",
-            priority: 0,
+            priority: 0
           },
           react: {
             test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
             name: "react-related",
             chunks: "all",
-            priority: 1,
-          },
-        },
+            priority: 1
+          }
+        }
       },
-      minimizer: ["...", new CssMinimizerPlugin()],
+      minimizer: ["...", new CssMinimizerPlugin()]
     },
     plugins: [
       new HtmlWebpackPlugin({
         inject: true,
-        template: paths.spaHtml,
+        template: paths.spaHtml
       }),
       new CopyPlugin({
         patterns: [
           {
             from: paths.publicDir,
             filter: async (resourcePath) => !resourcePath.includes(".html"),
-            noErrorOnMissing: true,
-          },
-        ],
+            noErrorOnMissing: true
+          }
+        ]
       }),
       isBuild &&
         new MiniCssExtractPlugin({
           filename: "static/css/[name].[contenthash:8].css",
-          chunkFilename: "static/css/[name].[contenthash:8].chunk.css",
+          chunkFilename: "static/css/[name].[contenthash:8].chunk.css"
         }),
       isDev && new ReactRefreshWebpackPlugin(),
       isTs &&
@@ -192,11 +192,11 @@ export default function getCommonConfig({
           typescript: {
             diagnosticOptions: {
               semantic: true,
-              syntactic: true,
+              syntactic: true
             },
-            mode: "write-references",
-          },
-        }),
-    ].filter(Boolean),
+            mode: "write-references"
+          }
+        })
+    ].filter(Boolean)
   };
 }
