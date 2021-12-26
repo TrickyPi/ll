@@ -6,8 +6,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "tsc --watch",
-    "build": "rm -rf lib/ && tsc",
-    "prepublishOnly": "yarn build"
+    "build": "rm -rf lib/ && tsc"
   },
   "dependencies": {
     "@babel/core": "^7.15.8",

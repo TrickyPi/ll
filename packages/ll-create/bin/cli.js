@@ -1,2 +1,2 @@
 #!/usr/bin/env node
-const a = "2";
+require("../lib/index");

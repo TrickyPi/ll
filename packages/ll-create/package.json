@@ -2,5 +2,24 @@
   "name": "ll-create",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "type": "commonjs",
+  "license": "MIT",
+  "bin": {
+    "ll": "bin/cli.js"
+  },
+  "scripts": {
+    "dev": "swc src -w -D -d lib/",
+    "build": "rm -rf lib/ && swc src -D -d lib/"
+  },
+  "dependencies": {
+    "commander": "^8.3.0",
+    "fs-extra": "^10.0.0"
+  },
+  "devDependencies": {
+    "@swc/cli": "^0.1.55",
+    "@swc/core": "^1.2.122",
+    "@types/fs-extra": "^9.0.13",
+    "chokidar": "^3.5.2",
+    "typescript": "^4.5.4"
+  }
 }

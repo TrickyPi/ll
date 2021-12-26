@@ -1,6 +1,6 @@
 # ll-script
 
-a simple webpack builder for react
+a simple webpack builder for react (inspire from react-scripts)
 
 ## feat
 
