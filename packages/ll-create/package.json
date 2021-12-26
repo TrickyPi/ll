@@ -8,7 +8,7 @@
     "ll": "bin/cli.js"
   },
   "scripts": {
-    "dev": "swc src -w -D -d lib/",
+    "dev": "rm -rf lib/ && swc src -w -D -d lib/",
     "build": "rm -rf lib/ && swc src -D -d lib/"
   },
   "dependencies": {
