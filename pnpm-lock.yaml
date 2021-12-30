@@ -10,7 +10,7 @@ importers:
 
   packages/ll-create:
     specifiers:
-      '@swc/cli': ^0.1.55
+      '@swc/cli': github:TrickyPi/cli#feature/support-copy-really
       '@swc/core': ^1.2.122
       '@types/fs-extra': ^9.0.13
       chokidar: ^3.5.2
@@ -21,7 +21,7 @@ importers:
       commander: 8.3.0
       fs-extra: 10.0.0
     devDependencies:
-      '@swc/cli': 0.1.55_@swc+core@1.2.122+chokidar@3.5.2
+      '@swc/cli': github.com/TrickyPi/cli/671f9234882326b6017e595e6cba0fe752422ad5_@swc+core@1.2.122+chokidar@3.5.2
       '@swc/core': 1.2.122
       '@types/fs-extra': 9.0.13
       chokidar: 3.5.2
@@ -1402,25 +1402,6 @@ packages:
       webpack: 5.65.0
       webpack-dev-server: 4.7.1_webpack@5.65.0
     dev: false
-
-  /@swc/cli/0.1.55_@swc+core@1.2.122+chokidar@3.5.2:
-    resolution: {integrity: sha512-akkLuRexFq8XTi6JNZ27mXD4wcKXLDSLj4g7YMU+/upFM8IeD1IEp1Mxtre7MzCZn+QOQgPF8N8IReJoHuSn3g==}
-    engines: {node: '>= 12.13'}
-    hasBin: true
-    peerDependencies:
-      '@swc/core': ^1.2.66
-      chokidar: ^3.5.1
-    peerDependenciesMeta:
-      chokidar:
-        optional: true
-    dependencies:
-      '@swc/core': 1.2.122
-      chokidar: 3.5.2
-      commander: 7.2.0
-      fast-glob: 3.2.7
-      slash: 3.0.0
-      source-map: 0.7.3
-    dev: true
 
   /@swc/core-android-arm64/1.2.122:
     resolution: {integrity: sha512-AFaqKFa4jhjNGUUHMnj6mydCHVe1nIv/k8/12Fg7bpkYjtCSkXzEwowVi3/7lC7P5lZ7M7LSOyDTcQ/t+nj4wQ==}
@@ -5715,3 +5696,25 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
     dev: false
+
+  github.com/TrickyPi/cli/671f9234882326b6017e595e6cba0fe752422ad5_@swc+core@1.2.122+chokidar@3.5.2:
+    resolution: {tarball: https://codeload.github.com/TrickyPi/cli/tar.gz/671f9234882326b6017e595e6cba0fe752422ad5}
+    id: github.com/TrickyPi/cli/671f9234882326b6017e595e6cba0fe752422ad5
+    name: '@swc/cli'
+    version: 0.1.55
+    engines: {node: '>= 12.13'}
+    hasBin: true
+    peerDependencies:
+      '@swc/core': ^1.2.66
+      chokidar: ^3.5.1
+    peerDependenciesMeta:
+      chokidar:
+        optional: true
+    dependencies:
+      '@swc/core': 1.2.122
+      chokidar: 3.5.2
+      commander: 7.2.0
+      fast-glob: 3.2.7
+      slash: 3.0.0
+      source-map: 0.7.3
+    dev: true

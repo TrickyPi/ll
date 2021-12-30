@@ -16,7 +16,7 @@
     "fs-extra": "^10.0.0"
   },
   "devDependencies": {
-    "@swc/cli": "^0.1.55",
+    "@swc/cli": "github:TrickyPi/cli#feature/support-copy-really",
     "@swc/core": "^1.2.122",
     "@types/fs-extra": "^9.0.13",
     "chokidar": "^3.5.2",

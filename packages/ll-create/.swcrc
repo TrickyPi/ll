@@ -1,5 +1,5 @@
 {
-  "exclude": ["src/template/*"],
+  "exclude": ["src/template/"],
   "jsc": {
     "parser": {
       "syntax": "typescript",
