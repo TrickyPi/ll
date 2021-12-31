@@ -28,9 +28,9 @@ export default function getCommonConfig({
   ) => {
     isBuild && cssOptions.importLoaders++;
     const loaders = [
-      isBuild ? MiniCssExtractPlugin.loader : "style-loader",
+      isBuild ? MiniCssExtractPlugin.loader : require.resolve("style-loader"),
       {
-        loader: "css-loader",
+        loader: require.resolve("css-loader"),
         options: {
           modules: {
             auto: true,
@@ -45,7 +45,7 @@ export default function getCommonConfig({
        * 默认应该比较新的浏览器了
        */
       isBuild && {
-        loader: "postcss-loader",
+        loader: require.resolve("postcss-loader"),
         options: {
           postcssOptions: {
             plugins: ["postcss-preset-env"]
@@ -92,7 +92,7 @@ export default function getCommonConfig({
             {
               importLoaders: 1
             },
-            "less-loader"
+            require.resolve("less-loader")
           )
         },
         {
@@ -101,7 +101,7 @@ export default function getCommonConfig({
             {
               importLoaders: 1
             },
-            "sass-loader"
+            require.resolve("sass-loader")
           )
         },
         {
@@ -109,25 +109,27 @@ export default function getCommonConfig({
           include: paths.appSrc,
           use: [
             {
-              loader: "babel-loader",
+              loader: require.resolve("babel-loader"),
               options: {
                 presets: [
                   [
-                    "@babel/preset-env",
+                    require.resolve("@babel/preset-env"),
                     {
                       useBuiltIns: "entry",
                       corejs: 3
                     }
                   ],
                   [
-                    "@babel/preset-react",
+                    require.resolve("@babel/preset-react"),
                     {
                       runtime: "automatic"
                     }
                   ],
-                  isTs && "@babel/preset-typescript"
+                  isTs && require.resolve("@babel/preset-typescript")
                 ].filter(Boolean),
-                plugins: [isDev && "react-refresh/babel"].filter(Boolean)
+                plugins: [
+                  isDev && require.resolve("react-refresh/babel")
+                ].filter(Boolean)
               }
             }
           ]
