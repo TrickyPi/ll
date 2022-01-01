@@ -1,12 +1,13 @@
 {
   "name": "ll-script",
-  "version": "0.0.2",
+  "version": "1.0.1",
   "bin": "bin/cli.js",
   "type": "commonjs",
   "license": "MIT",
   "scripts": {
-    "dev": "tsc --watch",
-    "build": "rm -rf lib/ && tsc"
+    "dev": "rm -rf lib/ && tsc --watch",
+    "build": "rm -rf lib/ && tsc",
+    "prepare": "pnpm build"
   },
   "dependencies": {
     "@babel/core": "^7.15.8",
