@@ -61,7 +61,7 @@ export default function getCommonConfig({
     mode: isBuild ? "production" : "development",
     entry: "./src/index",
     resolve: {
-      extensions: [".tsx", ".ts", "jsx", ".js"],
+      extensions: [".tsx", ".ts", ".jsx", ".js"],
       plugins: [isTs && new TsconfigPathsPlugin()].filter(Boolean)
     },
     output: {
@@ -72,6 +72,7 @@ export default function getCommonConfig({
         ? "static/js/[name].[contenthash:8].chunk.js"
         : "static/js/[name].chunk.js",
       path: paths.dist,
+      publicPath: "/",
       clean: true,
       library: {
         name: packageName,

@@ -1,5 +1,3 @@
-process.env.NODE_ENV = "production";
-
 import webpack from "webpack";
 import chalk from "chalk";
 import ora from "ora";

@@ -1,7 +1,8 @@
-process.env.NODE_ENV = "development";
-
 import webpack, { Configuration } from "webpack";
-import DevServer from "webpack-dev-server";
+import DevServer, {
+  Configuration as DevServerConfig
+} from "webpack-dev-server";
+import fse from "fs-extra";
 import ora from "ora";
 import portfinder from "portfinder";
 import paths from "../config/paths";
@@ -30,6 +31,18 @@ const compiler = webpack(config);
 
   const spinner = ora(`starting dev server in ${port} port`).start();
 
+  let devServer: DevServerConfig = {};
+  if (fse.pathExistsSync(paths.llConfig)) {
+    try {
+      devServer = require(paths.llConfig).devServer;
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  const { setupMiddlewares: userSetupMiddlewares, ...restDevServerConfig } =
+    devServer;
+
   const server = new DevServer(
     {
       static: paths.dist,
@@ -41,8 +54,14 @@ const compiler = webpack(config);
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Headers": "*"
       },
-      onBeforeSetupMiddleware({ app }) {
-        useMocks(app);
+      ...restDevServerConfig,
+      setupMiddlewares(middleware, devServer) {
+        //mock
+        useMocks(devServer.app);
+
+        return userSetupMiddlewares
+          ? userSetupMiddlewares(middleware, devServer)
+          : middleware;
       }
     },
     compiler

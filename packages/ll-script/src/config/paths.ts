@@ -9,7 +9,5 @@ export default {
   appSrc: path.resolve(cwd, "src/"),
   mockFile: path.resolve(cwd, "mock/index.json"),
   publicDir: path.resolve(cwd, "public/"),
-  spaHtml: path.resolve(cwd, "public/index.html"),
-  ReactTsEntryFile: path.resolve(cwd, "src/index.tsx"),
-  ReactJsEntryFile: path.resolve(cwd, "src/index.jsx")
+  spaHtml: path.resolve(cwd, "public/index.html")
 };

@@ -26,7 +26,7 @@ Update the scripts section of your package.json file to use the ll-script CLI
 
 ```
 
-### customize webpack config
+### customize webpack config and devServer config
 
 add ll.config.js in your project root.
 
@@ -35,7 +35,9 @@ module.exports = {
   webpackConfig: (prevConfig, { isDev, isBuild }) => {
     //the best way is use webpack-merge to merge webpack config
     return prevConfig;
-  }
+  },
+  //webpack-dev-server config
+  devServer: {}
 };
 ```
 
