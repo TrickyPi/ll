@@ -1,0 +1,16 @@
+{
+  "name": "ll-react-js-starter",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "ll-script start",
+    "start:proxy": "ll-script start:proxy",
+    "build": "ll-script"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "ll-script": "0.0.2"
+  }
+}

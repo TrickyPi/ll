@@ -1,0 +1,14 @@
+{
+  "mock": true,
+  "api": [
+    {
+      "path": "/api/get-info",
+      "method": "GET",
+      "res": {
+        "success": true,
+        "data": {}
+      },
+      "mock": false
+    }
+  ]
+}
