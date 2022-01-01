@@ -3,10 +3,7 @@ lockfileVersion: 5.3
 importers:
 
   .:
-    specifiers:
-      ll-create: ^1.0.0
-    dependencies:
-      ll-create: link:packages/ll-create
+    specifiers: {}
 
   packages/ll-create:
     specifiers:
