@@ -22,5 +22,10 @@
     "@types/fs-extra": "^9.0.13",
     "chokidar": "^3.5.2",
     "typescript": "^4.5.4"
-  }
+  },
+  "keywords": [
+    "webpack",
+    "react",
+    "template"
+  ]
 }
