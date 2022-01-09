@@ -1,8 +1,9 @@
 import fse from "fs-extra";
+import DevServer from "webpack-dev-server";
 import { pathToRegexp } from "path-to-regexp";
 import paths from "../config/paths";
 
-const isPath = (url, path) => {
+const isPath = (url: string, path: string) => {
   const routePath = path.replace(/\${(.+?)}/g, (_, value) => ":" + value);
   const regexp = pathToRegexp(routePath);
   return !!regexp.exec(url);
@@ -17,11 +18,11 @@ interface MockItem {
   mock: boolean;
 }
 
-export default function useMocks(app) {
+export default function useMocks(app: DevServer["app"]) {
   if (!fse.pathExistsSync(paths.mockFile)) {
     return;
   }
-  app.use("/*", function (req, res, next) {
+  app!.use("/*", function (req, res, next) {
     const { originalUrl: url, method: reqMethod } = req;
     const {
       mock,

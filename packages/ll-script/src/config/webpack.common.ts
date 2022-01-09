@@ -1,22 +1,25 @@
 import { Configuration } from "webpack";
+//@ts-ignore
 import CopyPlugin from "copy-webpack-plugin";
-import HtmlWebpackPlugin from "html-webpack-plugin";
+//@ts-ignore
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import HtmlWebpackPlugin from "html-webpack-plugin";
 import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
 import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import paths from "./paths";
+import { BaseParams } from "./webpack.config";
+
+interface TsParams extends BaseParams {
+  isTs: boolean;
+}
 
 export default function getCommonConfig({
   isDev,
   isBuild,
   isTs
-}: {
-  isDev: boolean;
-  isBuild: boolean;
-  isTs: boolean;
-}): Configuration {
+}: TsParams): Configuration {
   const { name: packageName } = require(paths.appPkg);
 
   //获取style处理的loader
@@ -62,7 +65,9 @@ export default function getCommonConfig({
     entry: "./src/index",
     resolve: {
       extensions: [".tsx", ".ts", ".jsx", ".js"],
-      plugins: [isTs && new TsconfigPathsPlugin()].filter(Boolean)
+      plugins: [isTs && new TsconfigPathsPlugin()].filter(
+        (value): value is any => Boolean(value)
+      )
     },
     output: {
       filename: isBuild
@@ -178,7 +183,8 @@ export default function getCommonConfig({
         patterns: [
           {
             from: paths.publicDir,
-            filter: async (resourcePath) => !resourcePath.includes(".html"),
+            filter: async (resourcePath: string) =>
+              !resourcePath.includes(".html"),
             noErrorOnMissing: true
           }
         ]

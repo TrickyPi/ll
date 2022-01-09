@@ -6,7 +6,7 @@
     "lib": ["ES2015"],
     "declaration": true,
     "outDir": "./lib",
-    "strict": false,
+    "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true

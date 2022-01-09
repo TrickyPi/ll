@@ -1,6 +1,15 @@
 import fse from "fs-extra";
+import { Configuration } from "webpack";
 import paths from "./paths";
 import getCommonConfig from "./webpack.common";
+
+export interface BaseParams {
+  isDev: boolean;
+  isBuild: boolean;
+}
+export interface WebpackConfig {
+  (arg0: Configuration, arg1: BaseParams): Configuration;
+}
 
 export default () => {
   const isBuild = process.env.NODE_ENV === "production";
@@ -11,7 +20,7 @@ export default () => {
   const commonConfig = getCommonConfig({ isDev, isBuild, isTs });
   let outputConfig = commonConfig;
 
-  let webpackConfig = null;
+  let webpackConfig: WebpackConfig | null = null;
   if (fse.pathExistsSync(paths.llConfig)) {
     try {
       webpackConfig = require(paths.llConfig).webpackConfig;
