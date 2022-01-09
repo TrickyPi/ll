@@ -54,5 +54,6 @@
     "type": "git",
     "url": "git+https://github.com/TrickyPi/ll.git",
     "directory": "packages/ll-script"
-  }
+  },
+  "homepage": "https://github.com/TrickyPi/ll/tree/main/packages/ll-script#readme"
 }
