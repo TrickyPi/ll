@@ -8,6 +8,7 @@ import portfinder from "portfinder";
 import paths from "../config/paths";
 import getConfig from "../config/webpack.config";
 import useMocks from "../module/mock";
+export { Configuration } from "webpack-dev-server";
 
 const config: Configuration = {
   ...getConfig(),

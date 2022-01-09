@@ -1,6 +1,6 @@
 {
   "name": "ll-script",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "bin": "bin/cli.js",
   "type": "commonjs",
   "license": "MIT",
