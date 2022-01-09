@@ -1,6 +1,6 @@
 {
   "name": "ll-script",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "bin": "bin/cli.js",
   "type": "commonjs",
   "license": "MIT",
@@ -49,5 +49,10 @@
     "webpack",
     "react",
     "mock"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TrickyPi/ll.git",
+    "directory": "packages/ll-script"
+  }
 }
