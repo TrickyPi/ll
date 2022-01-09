@@ -1,6 +1,6 @@
 # ll-script
 
-a simple webpack builder for react (inspire from react-scripts)
+A simple webpack builder for react (inspired by react-scripts), already built into the ll-create cli. If you want to use this script to bundle your application, you should consider using ll-create to create your react-template.
 
 ## feat
 
