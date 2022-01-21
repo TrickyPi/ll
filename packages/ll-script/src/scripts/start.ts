@@ -55,6 +55,7 @@ const compiler = webpack(config);
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Headers": "*"
       },
+      historyApiFallback: true,
       ...restDevServerConfig,
       setupMiddlewares(middleware, devServer) {
         //mock
