@@ -56,7 +56,6 @@ const compiler = webpack(config);
         "Access-Control-Allow-Headers": "*"
       },
       historyApiFallback: true,
-      ...restDevServerConfig,
       setupMiddlewares(middleware, devServer) {
         //mock
         useMocks(devServer.app);
@@ -64,7 +63,8 @@ const compiler = webpack(config);
         return userSetupMiddlewares
           ? userSetupMiddlewares(middleware, devServer)
           : middleware;
-      }
+      },
+      ...restDevServerConfig
     },
     compiler
   );
