@@ -1,5 +1,11 @@
+import path from "path";
 import { Command } from "commander";
+
 const program = new Command();
+
+const { version } = require(path.resolve(__dirname, "../package.json"));
+
+program.version(version);
 
 program
   .command("create")
@@ -12,4 +18,3 @@ program
   });
 
 program.parse(process.argv);
-
